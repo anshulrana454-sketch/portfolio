@@ -163,8 +163,8 @@ const Chatbot = () => {
               <div className="status-dot"></div>
             </div>
             <div>
-              <h3>ARIA ✨</h3>
-              <p>AI Assistant</p>
+              <h3>ARIA</h3>
+              <p>Anshul Assistant</p>
             </div>
           </div>
           <button className="close-btn" onClick={toggleChat} data-cursor="disable">

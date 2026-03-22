@@ -40,6 +40,12 @@
   filter: drop-shadow(0 0 5px rgba(94, 234, 212, 0.5));
 }
 
+@keyframes floatChatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
 .fab-badge {
   position: absolute;
   top: -2px;

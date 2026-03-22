@@ -1,0 +1,132 @@
+.why-section {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: auto;
+  position: relative;
+  overflow: clip;
+}
+
+.why-container {
+  width: 100%;
+  margin: auto;
+  margin-top: 15vh;
+  margin-bottom: 25vh;
+}
+
+.why-container h2 {
+  font-size: 80px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.why-container h2 span {
+  background: linear-gradient(90deg, #5eead4 0%, #d400ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background: linear-gradient(180deg, #5eead4, #d400ff);
+  transition: height 0.4s ease;
+}
+
+.why-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.why-card:hover::before {
+  height: 100%;
+}
+
+.why-icon {
+  font-size: 40px;
+  color: #5eead4;
+  margin-bottom: 20px;
+}
+
+.why-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.why-desc {
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.why-points {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-points li {
+  font-size: 14px;
+  color: #8c96ab;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.why-points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  top: 0px;
+  color: #5eead4;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-container h2 {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .why-card {
+    padding: 25px;
+  }
+  .why-container h2 {
+    font-size: 40px;
+  }
+}

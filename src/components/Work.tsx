@@ -5,34 +5,32 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Voice Assistant – Jarvis",
+    category: "AI Voice Assistant",
+    tools: "Python, Speech Recognition, NLP",
+    image: "/images/jarvis.png",
+    description: "An intelligent, voice-activated virtual assistant powered by natural language processing. Capable of executing system commands, fetching real-time data, and engaging in seamless conversations.",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Hotel Booking Website – Anshul Palaces",
+    category: "Full-Stack Booking System",
+    tools: "React, Node.js, MongoDB",
+    image: "/images/booking.png",
+    description: "A premium luxury hotel reservation platform featuring real-time room availability, secure authentication, and a stunning, responsive user interface designed for a flawless guest experience.",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "Smart Vacuum Cleaner",
+    category: "IoT Automation",
+    tools: "Arduino UNO, ESP32-CAM, Sensors",
+    image: "/images/DIY-WiFi-Controlled-Smart-Vacuum-Cleaner.png",
+    description: "A DIY autonomous robotics project featuring live Wi-Fi camera streaming over local networks, ultra-sonic obstacle avoidance mapping, and precise motor control for smart home cleaning.",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "Online Taxi Booking",
+    category: "Full-Stack Web App",
+    tools: "MongoDB, Next.js, TailWind CSS",
+    image: "/images/taxi_bookingg.png",
+    description: "A scalable, high-performance ride-hailing web application bringing dynamic driver-rider scheduling together with responsive routing and interactive mapping layouts.",
   },
 ];
 
@@ -107,6 +105,9 @@ const Work = () => {
                         <h4>{project.title}</h4>
                         <p className="carousel-category">
                           {project.category}
+                        </p>
+                        <p className="carousel-description">
+                          {project.description}
                         </p>
                         <div className="carousel-tools">
                           <span className="tools-label">Tools & Features</span>

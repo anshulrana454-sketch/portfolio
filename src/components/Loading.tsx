@@ -9,15 +9,21 @@ const Loading = ({ percent }: { percent: number }) => {
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [showRadhe, setShowRadhe] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
+  useEffect(() => {
+    if (percent >= 100 && !loaded) {
       setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+        setLoaded(true);
+        setTimeout(() => {
+          setShowRadhe(true);
+          setTimeout(() => {
+            setIsLoaded(true);
+          }, 1800);
+        }, 800);
+      }, 600);
+    }
+  }, [percent, loaded]);
 
   useEffect(() => {
     import("./utils/initialFX").then((module) => {
@@ -46,7 +52,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          RC
+          AR
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -62,8 +68,8 @@ const Loading = ({ percent }: { percent: number }) => {
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
+            <span> Full Stack Developer</span> <span>IoT Engineer</span>
+            <span> Full Stack Developer</span> <span>IoT Engineer</span>
           </Marquee>
         </div>
         <div
@@ -81,7 +87,8 @@ const Loading = ({ percent }: { percent: number }) => {
               <div className="loading-box"></div>
             </div>
             <div className="loading-content2">
-              <span>Welcome</span>
+              <span className={`greeting-text ${showRadhe ? "fade-up-out" : ""}`}>Welcome</span>
+              <span className={`radhe-text ${showRadhe ? "fade-up-in" : ""}`}>Radhe Radhe 🙏</span>
             </div>
           </div>
         </div>

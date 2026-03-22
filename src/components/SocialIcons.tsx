@@ -6,10 +6,19 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HoverLinks from "./HoverLinks";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const SocialIcons = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
@@ -60,32 +69,42 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com/rajeshchityal" target="_blank">
+          <a href="https://github.com/anshulrana454-sketch" target="_blank">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/rajeshchityal" target="_blank">
+          <a href="https://www.linkedin.com/in/anshul-rana-29805b36b" target="_blank">
             <FaLinkedinIn />
           </a>
         </span>
         <span>
-          <a href="https://x.com/rajeshchityal" target="_blank">
+          <a href="#" target="_blank">
             <FaXTwitter />
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com/rajeshchityal" target="_blank">
+          <a href="https://instagram.com/rana_155_anshul" target="_blank">
             <FaInstagram />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a 
+        className="resume-button" 
+        href="#"
+        onClick={handleResumeClick}
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
       </a>
+
+      {/* Animated Toast */}
+      <div className={`resume-toast ${showToast ? 'show' : ''}`}>
+        <MdOutlineTipsAndUpdates size={24} />
+        <span>Updation is going on... soon it will be uploaded!</span>
+      </div>
     </div>
   );
 };

@@ -411,3 +411,39 @@
     font-size: 18px;
   }
 }
+
+/* ── Custom Radhe Radhe Greeting Animations ── */
+.greeting-text {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 1;
+  transform: translateY(0);
+  display: flex;
+}
+
+.greeting-text.fade-up-out {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.radhe-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(30px);
+  background: linear-gradient(90deg, #2dd4bf 0%, #d400ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+.radhe-text.fade-up-in {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}

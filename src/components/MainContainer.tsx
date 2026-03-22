@@ -7,6 +7,7 @@ import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
+import WhyHireMe from "./WhyHireMe";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
 
@@ -48,6 +49,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
                 <TechStack />
               </Suspense>
             )}
+            <WhyHireMe />
             <Contact />
           </div>
         </div>

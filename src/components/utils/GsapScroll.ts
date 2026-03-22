@@ -40,13 +40,8 @@ export function setCharTimeline(
   character?.children.forEach((object: any) => {
     if (object.name === "Plane004") {
       object.children.forEach((child: any) => {
-        if (window.innerWidth > 1024) {
-          child.material.transparent = true;
-          child.material.opacity = 0;
-        } else {
-          child.material.transparent = true;
-          child.material.opacity = 1;
-        }
+        child.material.transparent = true;
+        child.material.opacity = 0;
         if (child.material.name === "Material.018") {
           monitor = child;
           child.material.color.set("#FFFFFF");
@@ -55,14 +50,8 @@ export function setCharTimeline(
     }
     if (object.name === "screenlight") {
       object.material.transparent = true;
+      object.material.opacity = 0;
       object.material.emissive.set("#B0F5EA");
-      
-      if (window.innerWidth > 1024) {
-        object.material.opacity = 0;
-      } else {
-        object.material.opacity = 1;
-      }
-
       gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
         emissiveIntensity: () => intensity * 8,
         duration: () => Math.random() * 0.6,
@@ -131,6 +120,13 @@ export function setCharTimeline(
     }
   } else {
     if (character) {
+      if (monitor) {
+        gsap.set(monitor.position, { y: 0, z: 0 });
+        gsap.to(monitor.material, { opacity: 1, duration: 2, delay: 1.5 });
+      }
+      if (screenLight) {
+        gsap.to(screenLight.material, { opacity: 1, duration: 2, delay: 1.5 });
+      }
       const tM2 = gsap.timeline({
         scrollTrigger: {
           trigger: ".what-box-in",

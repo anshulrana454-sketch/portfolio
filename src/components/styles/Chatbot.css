@@ -422,12 +422,23 @@
 
 @media screen and (max-width: 480px) {
   .chatbot-container {
-    right: 20px;
+    right: auto;
+    left: 20px;
     bottom: 20px;
   }
   .chatbot-window {
     width: calc(100vw - 40px);
-    right: -5px;
+    right: auto;
+    left: -5px;
     bottom: 80px;
+    transform-origin: bottom left;
+  }
+  .chatbot-tooltip {
+    right: auto;
+    left: -5px;
+  }
+  .chatbot-tooltip::after {
+    right: auto;
+    left: 25px;
   }
 }

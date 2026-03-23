@@ -32,13 +32,13 @@ const Scene = () => {
         antialias: true,
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
-      camera.position.set(0, 13.1, window.innerWidth < 768 ? 40 : 24.7);
+      camera.position.set(0, 13.1, window.innerWidth < 768 ? 80 : 24.7);
       camera.zoom = 1.1;
       camera.updateProjectionMatrix();
 

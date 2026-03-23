@@ -15,7 +15,7 @@ export default function handleResize(
   renderer.setSize(width, height);
   camera.aspect = width / height;
   if (window.innerWidth < 768) {
-    camera.position.set(0, 13.1, 40); // Zoom out for portrait screens
+    camera.position.set(0, 13.1, 80); // Zoom out much further for portrait screens
   } else {
     camera.position.set(0, 13.1, 24.7);
   }

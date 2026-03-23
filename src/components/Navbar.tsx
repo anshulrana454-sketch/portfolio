@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
+import { FiMenu, FiX } from "react-icons/fi";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
@@ -9,6 +10,8 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -52,18 +55,21 @@ const Navbar = () => {
         >
           anshulrana454@gmail.com
         </a>
-        <ul>
-          <li>
+        <div className="hamburger-menu" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </div>
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <li onClick={() => setMenuOpen(false)}>
             <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
-            </a>
+        </a>
           </li>
-          <li>
+          <li onClick={() => setMenuOpen(false)}>
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
             </a>
           </li>
-          <li>
+          <li onClick={() => setMenuOpen(false)}>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
             </a>

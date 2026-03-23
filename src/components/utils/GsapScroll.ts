@@ -121,11 +121,32 @@ export function setCharTimeline(
   } else {
     if (character) {
       if (monitor) {
-        gsap.set(monitor.position, { y: 0, z: 0 });
-        gsap.to(monitor.material, { opacity: 1, duration: 2, delay: 1.5 });
+        gsap.set(monitor.position, { y: -10, z: 2 });
+      }
+      const tlMobileAbout = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 70%",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      tlMobileAbout.to(
+        camera.position,
+        { z: 150, y: 22, duration: 3, ease: "power3.inOut" },
+        0
+      );
+      tlMobileAbout.to(
+        character.rotation,
+        { y: 0.8, x: 0.1, duration: 3 },
+        0
+      );
+      if (monitor) {
+        tlMobileAbout.to(monitor.position, { y: 0, z: 0, duration: 1.5 }, 0);
+        tlMobileAbout.to(monitor.material, { opacity: 1, duration: 1.5 }, 0);
       }
       if (screenLight) {
-        gsap.to(screenLight.material, { opacity: 1, duration: 2, delay: 1.5 });
+        tlMobileAbout.to(screenLight.material, { opacity: 1, duration: 1.5 }, 0);
       }
       const tM2 = gsap.timeline({
         scrollTrigger: {
@@ -135,6 +156,21 @@ export function setCharTimeline(
         },
       });
       tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+      
+      const tlMobileWhatIDo = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".whatIDO",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      tlMobileWhatIDo.fromTo(
+        ".character-model",
+        { y: "0%" },
+        { y: "-60%", duration: 4, ease: "none", delay: 1 },
+        0
+      );
     }
   }
 }
